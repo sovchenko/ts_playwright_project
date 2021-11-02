@@ -4,15 +4,10 @@ export class BasePage {
     // browser!: Browser;
     // page!: Page;
 
-    //* think about the implementation of the different browser launch
-
-    async openHomePage(): Promise<BasePage> {
-        const browser = await chromium.launch({
-            headless: false
-        });
-        const page = await browser.newPage();
-        await page.goto('https://www.google.com/intl/uk/gmail/about/');
+    async openHomePage(page: Page): Promise<BasePage> {
+        //using base url for the page
+        await page.goto('');
+        await page.waitForLoadState("networkidle");
         return this;
     }
 } 
-module.exports = { BasePage }

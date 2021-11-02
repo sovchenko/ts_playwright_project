@@ -1,8 +1,26 @@
-// import { BasePage } from "../../ui/pages/BasePage";
-const { BasePage } = require('/Users/serhii_ovchenko/Documents/projects/ts_course/automation_intensive_group2/app/ui/pages/BasePage.ts')
+import { BasePage } from "../../ui/pages/BasePage";
+import { Browser, Page } from 'playwright';
+import { BrowserFactory } from "../../ui/utils/BrowserFactory";
+import { expect } from "chai";
 
-it('should work', async () => {
+let browser: Browser;
+let page: Page;
 
-    const homePage = new BasePage();
-    await homePage.openHomePage();
-});
+beforeEach(async () => {
+    browser = await BrowserFactory.getBrowser();
+    page = await BrowserFactory.getPage(browser);
+})
+
+afterEach(async () => {
+    await browser.close();
+})
+
+describe('User can ', () => {
+    it('open gmail home page', async () => {
+
+        const homePage = new BasePage();
+        await homePage.openHomePage(page);
+        
+        expect(page.url()).to.be.equal("https://www.google.com/intl/uk/gmail/about/", 'Incorrect url of the page');
+    })
+})
