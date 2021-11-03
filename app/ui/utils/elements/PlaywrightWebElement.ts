@@ -1,61 +1,63 @@
 import { Page } from "playwright";
 
-
 export class PlaywrighWebElement implements IWebElement {
-    readonly page: Page;
+    private readonly page: Page;
+    private readonly locator: string;
 
-    constructor(page: Page) {
+    constructor(page: Page, locator: string) {
         this.page = page;
+        this.locator = locator;
     }
 
-    async click(locator: string): Promise<void> {
-        await this.page.locator(locator).click();
+    async click(): Promise<void> {
+        await this.page.locator(this.locator).click();
+        console.log('inside the click')
     }
 
-    async setValue(locator:string, value: string): Promise<void> {
-        await this.page.locator(locator).fill("");
-        await this.page.locator(locator).fill(value);
+    async setValue(value: string): Promise<void> {
+        await this.page.locator(this.locator).fill("");
+        await this.page.locator(this.locator).fill(value);
     }
 
-    async hover(locator: string): Promise<void> {
-        await this.page.locator(locator).hover();
+    async hover(): Promise<void> {
+        await this.page.locator(this.locator).hover();
     }
 
-    async getText(locator: string): Promise<string> {
-        const value = await this.page.locator(locator).textContent();
-        if(!value){
-            throw new Error(`${locator} element doesn't have text`)
+    async getText(): Promise<string> {
+        const value = await this.page.locator(this.locator).textContent();
+        if (!value) {
+            throw new Error(`${this.locator} element doesn't have text`)
         }
         return value;
     }
 
-    async check(locator: string): Promise<void> {
-        await this.page.locator(locator).check();
+    async check(): Promise<void> {
+        await this.page.locator(this.locator).check();
     }
 
-    async doubleClick(locator: string): Promise<void> {
-        await this.page.locator(locator).dblclick();
+    async doubleClick(): Promise<void> {
+        await this.page.locator(this.locator).dblclick();
     }
 
-    async getAttribute(locator: string, attributeName: string): Promise<string> {
-        const attributeValue = await this.page.locator(locator).getAttribute(attributeName);
+    async getAttribute(attributeName: string): Promise<string> {
+        const attributeValue = await this.page.locator(this.locator).getAttribute(attributeName);
 
-        if(!attributeValue){
-            throw new Error(`${locator} element doesn't have ${attributeName} name.`);
+        if (!attributeValue) {
+            throw new Error(`${this.locator} element doesn't have ${attributeName} name.`);
         }
 
         return attributeValue;
     }
 
-    async isChecked(locator: string): Promise<boolean> {
-        return await this.page.locator(locator).isChecked();
+    async isChecked(): Promise<boolean> {
+        return await this.page.locator(this.locator).isChecked();
     }
 
-    async isEnabled(locator: string): Promise<boolean> {
-        return await this.page.locator(locator).isEnabled();
+    async isEnabled(): Promise<boolean> {
+        return await this.page.locator(this.locator).isEnabled();
     }
 
-    async isVisible(locator: string): Promise<boolean> {
-        return await this.page.locator(locator).isVisible();
+    async isVisible(): Promise<boolean> {
+        return await this.page.locator(this.locator).isVisible();
     }
 }

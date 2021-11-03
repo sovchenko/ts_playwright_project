@@ -1,24 +1,25 @@
-import { chromium, firefox, webkit } from 'playwright'
+import { chromium, firefox, Page, webkit } from 'playwright'
 import { Browser } from 'playwright'
+import { BrowserFactory } from './IBrowserFactory'
 
 
-export class BrowserFactory {
+export class PlaywrightBrowserFactory implements BrowserFactory {
 
-    static async getBrowser(): Promise<Browser> {
+     async getBrowser(): Promise<Browser> {
         //get browser name from the passed env variable
         //if undefined or null use 'chromium'
         const browserName = process.env.BROWSER ?? 'chromium';
 
-        //if BROWSER env variable is set to anything other than chromium, firefox, webkit - use chromiutm as default
-        const browser = {chromium, firefox, webkit }[browserName] ?? chromium;
-    
+        //if BROWSER env variable is set to anything other than chromium, firefox, webkit - use chromium as default
+        const browser = { chromium, firefox, webkit }[browserName] ?? chromium;
+
         return browser.launch({
             headless: false,
             timeout: 10000
         });
     }
 
-    static async getPage(browser: Browser){
+     async getPage(browser: Browser): Promise<Page> {
         return browser.newPage({
             //screen resolution for the browser window
             viewport: {
@@ -30,7 +31,7 @@ export class BrowserFactory {
             ignoreHTTPSErrors: true,
             recordVideo: {
                 dir: "./video-output",
-                size:{
+                size: {
                     width: 1920,
                     height: 1080
                 }
