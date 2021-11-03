@@ -1,11 +1,12 @@
 {
   "scripts": {
-    "test": "mocha --timeout 10000 -r ts-node/register 'app/test/**/*.ts'"
+    "test": "mocha --timeout 10000 --reporter mocha-allure-reporter -r ts-node/register 'app/test/**/*.ts'"
   },
   "dependencies": {
     "@types/chai": "^4.2.22",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.1",
+    "allure-commandline": "^2.13.8",
     "allure-playwright": "^2.0.0-beta.14",
     "chai": "^4.3.4",
     "got": "^11.8.2",

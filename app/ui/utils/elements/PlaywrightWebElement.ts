@@ -11,7 +11,6 @@ export class PlaywrighWebElement implements IWebElement {
 
     async click(): Promise<void> {
         await this.page.locator(this.locator).click();
-        console.log('inside the click')
     }
 
     async setValue(value: string): Promise<void> {
@@ -26,7 +25,7 @@ export class PlaywrighWebElement implements IWebElement {
     async getText(): Promise<string> {
         const value = await this.page.locator(this.locator).textContent();
         if (!value) {
-            throw new Error(`${this.locator} element doesn't have text`)
+            throw new Error(`${this.locator} element doesn't have text`);
         }
         return value;
     }
