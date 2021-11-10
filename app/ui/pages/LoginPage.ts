@@ -1,8 +1,8 @@
 import { Page } from "playwright";
-import { WebELementUtils } from "../utils/elements/WebElementUtil";
-import { BasePage } from "./BasePage";
+import WebELementUtils from "../../../core/ui/elements/WebElementUtil";
+import BasePage from "./BasePage";
 
-export class LoginPage extends BasePage {
+export default class LoginPage extends BasePage {
 
     page: Page;
     emailField: IWebElement;

@@ -1,9 +1,9 @@
 import { Page } from "playwright";
-import { WebELementUtils } from "../utils/elements/WebElementUtil";
-import { BasePage } from "./BasePage";
-import { LoginPage } from "./LoginPage";
+import WebELementUtils from "../../../core/ui/elements/WebElementUtil";
+import BasePage from "./BasePage";
+import LoginPage from "./LoginPage";
 
-export class HomePage extends BasePage {
+export default class HomePage extends BasePage {
     page: Page;
     loginButton: IWebElement;
 

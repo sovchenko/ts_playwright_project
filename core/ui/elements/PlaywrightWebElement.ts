@@ -1,6 +1,6 @@
 import { Page } from "playwright";
 
-export class PlaywrighWebElement implements IWebElement {
+export default class PlaywrighWebElement implements IWebElement {
     private readonly page: Page;
     private readonly locator: string;
 

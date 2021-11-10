@@ -1,6 +1,6 @@
 import { Browser, chromium, Page } from 'playwright'
 
-export class BasePage {
+export default class BasePage {
 
     //* this class should contain some shared logic between all the pages
 
@@ -10,4 +10,4 @@ export class BasePage {
         await page.waitForLoadState("networkidle");
         return this;
     }
-} 
+}

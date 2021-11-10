@@ -1,6 +1,6 @@
 import { Browser, Page } from "playwright";
 
-export interface BrowserFactory {
+export default interface BrowserFactory {
     getBrowser(): Promise<Browser>;
     getPage?(browser: any): Promise<Page>;
 }

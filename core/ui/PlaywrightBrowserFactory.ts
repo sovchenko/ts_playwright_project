@@ -1,11 +1,11 @@
 import { chromium, firefox, Page, webkit } from 'playwright'
 import { Browser } from 'playwright'
-import { BrowserFactory } from './IBrowserFactory'
+import BrowserFactory from './IBrowserFactory'
 
 
-export class PlaywrightBrowserFactory implements BrowserFactory {
+export default class PlaywrightBrowserFactory implements BrowserFactory {
 
-     async getBrowser(): Promise<Browser> {
+    async getBrowser(): Promise<Browser> {
         //get browser name from the passed env variable
         //if undefined or null use 'chromium'
         const browserName = process.env.BROWSER ?? 'chromium';
@@ -19,7 +19,7 @@ export class PlaywrightBrowserFactory implements BrowserFactory {
         });
     }
 
-     async getPage(browser: Browser): Promise<Page> {
+    async getPage(browser: Browser): Promise<Page> {
         return browser.newPage({
             //screen resolution for the browser window
             viewport: {

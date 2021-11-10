@@ -1,4 +1,4 @@
-export class WdioWebElement implements IWebElement {
+export default class WdioWebElement implements IWebElement {
 
     //todo: should be implemented in the future
     private readonly locator: string;

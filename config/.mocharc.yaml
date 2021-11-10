@@ -1,0 +1,29 @@
+allow-uncaught: false
+async-only: false
+bail: false
+check-leaks: false
+color: true
+delay: false
+diff: true
+exit: false # could be expressed as "no-exit: true"
+extension: ["js", "cjs", "mjs", "ts"]
+fail-zero: false
+forbid-only: false
+forbid-pending: false
+full-trace: false
+inline-diffs: true
+#max number of parallel worker jobs
+jobs: 2
+package: "./package.json"
+parallel: true
+recursive: false
+reporter: "mocha-allure-reporter"
+require: "specs/ui/hooks.ts"
+retries: 0
+slow: "75"
+sort: false
+spec:
+  - "specs/**/*.ts"
+timeout: 100000
+trace-warnings: true
+ui: "bdd"
