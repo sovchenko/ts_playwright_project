@@ -1,3 +1,5 @@
+import IWebElement from "./IWebElement";
+
 export default class WdioWebElement implements IWebElement {
 
     //todo: should be implemented in the future

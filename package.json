@@ -12,6 +12,7 @@
     "got": "^11.8.2",
     "mocha": "^9.1.3",
     "mocha-allure-reporter": "^1.4.0",
+    "mocha-multi-reporters": "^1.5.1",
     "playwright": "^1.15.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"

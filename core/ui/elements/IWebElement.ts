@@ -1,4 +1,4 @@
-interface IWebElement {
+export default interface IWebElement {
      click(): Promise<void>;
      setValue(value: string): Promise<void>;
      hover(): Promise<void>;

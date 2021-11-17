@@ -15,9 +15,11 @@ inline-diffs: true
 #max number of parallel worker jobs
 jobs: 2
 package: "./package.json"
-parallel: true
+# parallel: true
 recursive: false
-reporter: "mocha-allure-reporter"
+reporter: "mocha-multi-reporters"
+reporter-option:
+  - "configFile=config/multiReportersConfig.json"
 require: "specs/ui/hooks.ts"
 retries: 0
 slow: "75"

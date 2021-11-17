@@ -1,6 +1,7 @@
 import { Page } from "playwright";
 import PlaywrighWebElement from "./PlaywrightWebElement";
 import WdioWebElement from "./WdioWebElement";
+import IWebElement from "./IWebElement";
 
 export default class WebELementUtils {
 

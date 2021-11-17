@@ -1,13 +1,16 @@
-import { Browser, chromium, Page } from 'playwright'
+import { Page } from 'playwright'
+import { page } from '../../../specs/ui/hooks';
 
 export default class BasePage {
+    readonly page: Page;
 
-    //* this class should contain some shared logic between all the pages
+    constructor(){
+        this.page = page;
+    }
 
-    async openHomePage(page: Page): Promise<BasePage> {
-        //using base url for the page
-        await page.goto('');
-        await page.waitForLoadState("networkidle");
+    async openHomePage(): Promise<BasePage> {
+        await this.page.goto('');
+        await this.page.waitForLoadState("networkidle");
         return this;
     }
 }

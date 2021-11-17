@@ -1,4 +1,5 @@
 import { Page } from "playwright";
+import IWebElement from "./IWebElement";
 
 export default class PlaywrighWebElement implements IWebElement {
     private readonly page: Page;

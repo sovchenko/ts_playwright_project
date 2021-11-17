@@ -1,19 +1,17 @@
-import { Page } from "playwright";
+import IWebElement from "../../../core/ui/elements/IWebElement";
 import WebELementUtils from "../../../core/ui/elements/WebElementUtil";
 import BasePage from "./BasePage";
 
 export default class LoginPage extends BasePage {
 
-    page: Page;
     emailField: IWebElement;
     nextButton: IWebElement;
     forgetEmailLink: IWebElement;
     createNewAccountLink: IWebElement;
     errorMessage: IWebElement;
 
-    constructor(page: Page) {
+    constructor() {
         super();
-        this.page = page;
         this.emailField = WebELementUtils.findElement("//input[@type='email']", this.page);
         this.nextButton = WebELementUtils.findElement("//div[@id='identifierNext']//button", this.page);
         this.forgetEmailLink = WebELementUtils.findElement("//input[@type='email']/ancestor::div[@jsslot]//button", this.page);
