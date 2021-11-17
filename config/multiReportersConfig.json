@@ -1,3 +1,12 @@
 {
-    "reporterEnabled": "spec, mocha-allure-reporter"
+  "reporterEnabled": "spec, mochawesome",
+  "mochawesomeReporterOptions": {
+    "reportDir": "./mochawesome-report",
+    "autoOpen": true,
+    "showSkipped": true,
+    "reportPageTitle": "Babaiky Custom Report",
+    "reportTitle": "Babaiky Custom Report",
+    "charts": false,
+    "code": false
+  }
 }

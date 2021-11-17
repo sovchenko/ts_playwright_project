@@ -4,3 +4,4 @@ video-output/
 allure-results/
 allure-report/
 .DS_Store
+mochawesome-report/

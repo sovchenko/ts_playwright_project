@@ -15,7 +15,7 @@ inline-diffs: true
 #max number of parallel worker jobs
 jobs: 2
 package: "./package.json"
-# parallel: true
+parallel: true
 recursive: false
 reporter: "mocha-multi-reporters"
 reporter-option:
