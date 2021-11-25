@@ -60,4 +60,32 @@ export default class PlaywrighWebElement implements IWebElement {
     async isVisible(): Promise<boolean> {
         return await this.page.locator(this.locator).isVisible();
     }
+
+    async waitForVisible(): Promise<void> {
+        await this.page.waitForSelector(this.locator, {
+            state: "visible",
+            timeout: 10000
+        });
+    }
+
+    async waitForExisting(): Promise<void> {
+        await this.page.waitForSelector(this.locator, {
+            state: "attached",
+            timeout: 10000
+        });
+    }
+
+    async waitForNotExisting(): Promise<void> {
+        await this.page.waitForSelector(this.locator, {
+            state: "detached",
+            timeout: 10000
+        });
+    }
+
+    async waitForHidden(): Promise<void> {
+        await this.page.waitForSelector(this.locator, {
+            state: "hidden",
+            timeout: 10000
+        });
+    }
 }

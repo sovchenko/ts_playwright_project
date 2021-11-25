@@ -9,4 +9,8 @@ export default interface IWebElement {
      isChecked(): Promise<boolean>;
      isEnabled(): Promise<boolean>;
      isVisible(): Promise<boolean>;
+     waitForVisible(): Promise<void>;
+     waitForExisting(): Promise<void>;
+     waitForNotExisting(): Promise<void>;
+     waitForHidden(): Promise<void>;
 }

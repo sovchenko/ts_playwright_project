@@ -1,17 +1,12 @@
 import { chromium, firefox, Page, webkit } from 'playwright'
 import { Browser } from 'playwright'
 import BrowserFactory from './browser-factory'
-
+import { BROWSER, BASE_URL } from '../../config/base-config'
 
 export default class PlaywrightBrowserFactory implements BrowserFactory {
 
     async getBrowser(): Promise<Browser> {
-        //get browser name from the passed env variable
-        //if undefined or null use 'chromium'
-        const browserName = process.env.BROWSER ?? 'chromium';
-
-        //if BROWSER env variable is set to anything other than chromium, firefox, webkit - use chromium as default
-        const browser = { chromium, firefox, webkit }[browserName] ?? chromium;
+        const browser = { chromium, firefox, webkit }[BROWSER];
 
         return browser.launch({
             headless: false,
@@ -27,7 +22,7 @@ export default class PlaywrightBrowserFactory implements BrowserFactory {
                 height: 1080
             },
             //todo pass as ENV variable in future, create file with env variables instead of passing to the command line
-            baseURL: "https://www.google.com/intl/uk/gmail/about",
+            baseURL: BASE_URL,
             ignoreHTTPSErrors: true,
             recordVideo: {
                 dir: "./video-output",
