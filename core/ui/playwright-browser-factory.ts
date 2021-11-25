@@ -1,6 +1,6 @@
 import { chromium, firefox, Page, webkit } from 'playwright'
 import { Browser } from 'playwright'
-import BrowserFactory from './IBrowserFactory'
+import BrowserFactory from './browser-factory'
 
 
 export default class PlaywrightBrowserFactory implements BrowserFactory {

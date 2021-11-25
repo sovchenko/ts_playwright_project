@@ -1,6 +1,6 @@
-import IWebElement from "../../../core/ui/elements/IWebElement";
-import WebELementUtils from "../../../core/ui/elements/WebElementUtil";
-import BasePage from "./BasePage";
+import IWebElement from "../../../core/ui/elements/i-webelement";
+import WebELementUtils from "../../../core/ui/elements/web-element-util";
+import BasePage from "./base-page";
 
 export default class LoginPage extends BasePage {
 

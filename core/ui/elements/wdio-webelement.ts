@@ -1,4 +1,4 @@
-import IWebElement from "./IWebElement";
+import IWebElement from "./i-webelement";
 
 export default class WdioWebElement implements IWebElement {
 

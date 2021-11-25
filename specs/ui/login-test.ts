@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import HomePage from "../../app/ui/pages/HomePage";
+import HomePage from '../../app/ui/pages/home-page'
 
 describe('User can ', () => {
 

@@ -1,6 +1,6 @@
 import { Browser, Page } from "playwright"
-import BrowserFactory from "../../core/ui/IBrowserFactory";
-import PlaywrightBrowserFactory from "../../core/ui/PlaywrightBrowserFactory";
+import BrowserFactory from "../../core/ui/browser-factory";
+import PlaywrightBrowserFactory from "../../core/ui/playwright-browser-factory";
 
 export let page: Page;
 export let browser: Browser;
