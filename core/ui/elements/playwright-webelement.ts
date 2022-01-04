@@ -88,4 +88,12 @@ export default class PlaywrighWebElement implements IWebElement {
             timeout: 10000
         });
     }
+
+    // async waitForSelector(selector: string){
+    //     let element = await (await (await this.page.$(this.locator)).evaluateHandle;
+    //     await element.waitForSelector(selector, {
+    //         state: "attached",
+    //         timeout: 4000
+    //     });
+    // }
 }

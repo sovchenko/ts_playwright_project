@@ -8,7 +8,7 @@ export default class WdioWebElement implements IWebElement {
     constructor(locator: string) {
         this.locator = locator;
     }
-
+   
     click(): Promise<void> {
         throw new Error("Method not implemented.");
     }
@@ -64,4 +64,9 @@ export default class WdioWebElement implements IWebElement {
     waitForHidden(): Promise<void> {
         throw new Error("Method not implemented.");
     }
+    
+
+    // waitForSelector(selector: string): Promise<void> {
+    //     throw new Error("Method not implemented.");
+    // }
 }

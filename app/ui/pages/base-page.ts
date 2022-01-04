@@ -1,34 +1,23 @@
-import { Page } from 'playwright'
-import IWebElement from '../../../core/ui/elements/i-webelement';
-import PlaywrighWebElement from '../../../core/ui/elements/playwright-webelement';
-import WdioWebElement from '../../../core/ui/elements/wdio-webelement';
+import { Page } from 'playwright';
 import { page } from '../../../specs/ui/hooks';
+import Header from '../elements/header';
 
 export default class BasePage {
-    readonly page: Page;
+    protected readonly page: Page;
+    protected readonly header: Header;
 
     constructor() {
         this.page = page;
+        this.header = new Header(this.page);
+    }
+ 
+    async getHeader(){
+        return this.header;
     }
 
     async openHomePage(): Promise<BasePage> {
         await this.page.goto('');
         await this.page.waitForLoadState("networkidle");
         return this;
-    }
-
-    async findElement(locator: string): Promise<IWebElement> {
-        if (page !== undefined) {
-            return new PlaywrighWebElement(page, locator);
-        } else {
-            return new WdioWebElement(locator)
-        }
-    }
-
-    async waitFor(locator: string, state: "attached" | "detached" | "visible" | "hidden", timeout: number) {
-        this.page.waitForSelector(locator, {
-            state: state,
-            timeout: timeout
-        })
     }
 }

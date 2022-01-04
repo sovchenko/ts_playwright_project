@@ -13,4 +13,5 @@ export default interface IWebElement {
      waitForExisting(): Promise<void>;
      waitForNotExisting(): Promise<void>;
      waitForHidden(): Promise<void>;
+     // waitForSelector(selector: string): Promise<void>;
 }

@@ -4,8 +4,8 @@
     "reportDir": "./mochawesome-report",
     "autoOpen": true,
     "showSkipped": true,
-    "reportPageTitle": "Babaiky Custom Report",
-    "reportTitle": "Babaiky Custom Report",
+    "reportPageTitle": "Rozetka UI testing",
+    "reportTitle": "Rozetka UI Testing",
     "charts": false,
     "code": false
   }
