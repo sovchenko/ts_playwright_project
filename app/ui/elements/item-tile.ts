@@ -1,6 +1,6 @@
 import { Page } from "playwright";
 import { findElement, waitFor } from "../../../core/ui/utils/web-element-util";
-// import ItemPage from "../pages/item-page";
+import ItemPage from "../pages/item-page";
 
 export default class ItemTile {
     readonly page: Page;
@@ -30,23 +30,20 @@ export default class ItemTile {
         return await itemPriceElement.getText();
     }
 
-    // async openItemPage() {
-    //     await waitFor(this.page, this.itemInnerTileLocator, "visible");
-    //     let itemInnerTileLocatorElement = await findElement(`${this.rootTileElementLocator}${this.itemInnerTileLocator}`, this.page);
-    //     await itemInnerTileLocatorElement.click();
+    async openItemPage() {
+        await waitFor(this.page, this.itemInnerTileLocator, "visible");
+        let itemInnerTileLocatorElement = await findElement(`${this.rootTileElementLocator}${this.itemInnerTileLocator}`, this.page);
+        await itemInnerTileLocatorElement.click();
+        await this.page.waitForLoadState("networkidle");
 
-    //     return new ItemPage();
-    // }
+        return new ItemPage(this.page);
+    }
 
     async addItemToCart() {
         await waitFor(this.page, this.addItemToCartButtonLocator, "visible");
         let addItemToCartButton = await findElement(`${this.rootTileElementLocator}${this.addItemToCartButtonLocator}`, this.page);
         await addItemToCartButton.click();
-        //TODO: consider replacing method below with appropriate implemntation
-        await this.page.waitForSelector("button.buy-button_state_in-cart", {
-            state: "attached",
-            timeout: 3000
-        })
+        await this.page.waitForLoadState("networkidle");
     }
 
     async isItemAddedToTheCart() {
@@ -56,5 +53,4 @@ export default class ItemTile {
 
         return addItemToCartButtonClassAttribute.includes("buy-button_state_in-cart");
     }
-
 }

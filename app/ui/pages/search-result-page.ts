@@ -1,16 +1,20 @@
 import { Page } from "playwright";
 import { waitFor } from "../../../core/ui/utils/web-element-util";
+import Header from "../elements/header";
 import ItemTile from "../elements/item-tile";
-import BasePage from "./base-page";
 
 
-export default class SearchResultPage extends BasePage {
+export default class SearchResultPage {
 
-    constructor(){
-        super();
-    }
-
+    readonly page: Page;
+    readonly header: Header;
     private genericItemTileLocator = "//li[contains(@class, 'catalog-grid__cell')]";
+
+
+    constructor(page: Page) {
+        this.page = page;
+        this.header = new Header(this.page);
+    }
 
     async getItemTileByIndex(index: number) {
         let itemTileLocator = `${this.genericItemTileLocator}[${index}]`;
