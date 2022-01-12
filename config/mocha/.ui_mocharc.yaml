@@ -25,7 +25,7 @@ retries: 0
 slow: "75"
 sort: false
 spec:
-  - "specs/**/*.ts"
+  - "specs/ui/**/*.ts"
 timeout: 100000
 trace-warnings: true
 ui: "bdd"
