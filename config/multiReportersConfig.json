@@ -4,8 +4,8 @@
     "reportDir": "./mochawesome-report",
     "autoOpen": true,
     "showSkipped": true,
-    "reportPageTitle": "Rozetka UI testing",
-    "reportTitle": "Rozetka UI Testing",
+    "reportPageTitle": "API and UI testing framework",
+    "reportTitle": "API and UI testing framework",
     "charts": false,
     "code": false
   }
